@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<div class="crypto-table table-responsive">
+  <table class="content-table text-center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>Last</th>
+        <th>Buy / Sell Price</th>
+        <th>volume</th>
+        <th>base_unit</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <% Object.keys(response.data).forEach((k, i) => {  %>
+      <%    if (i >= 0 && i < 10) {  %>
+      <%        console.log(response.data[k]); %>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= response.data[k].name %></td>
+                  <td>&#8377;<%= response.data[k].last %></td>
+                  <td> &#8377;<%=response.data[k].buy%> /  &#8377;<%=response.data[k].sell %></td>
+                  <td><%= response.data[k].volume %></td>
+                  <td><%= response.data[k].base_unit %></td>
+                </tr>
+      <%    } %>
+      <% }); %>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+<%- include("partials/footer") %>
